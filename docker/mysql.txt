@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    db:
+        image: binhua/mysql
+        container_name: first-mysql
+        env_file: ./db.env
+        restart: always
+        ports:
+            - "53306:3306"
+        volumes:
+            - /Users/binhualiao/Project/Docker/mysql/lib:/var/lib/mysql:rw
+            - /Users/binhualiao/Project/Docker/mysql/logs:/var/lib/mysql-logs:rw
+            - /Users/binhualiao/Project/Docker/mysql/conf.d:/etc/mysql/conf.d:ro
+        command: "--character-set-server=utf8"
+        working_dir: /Users/binhualiao/Project/Docker/mysql/mysql_data_init
