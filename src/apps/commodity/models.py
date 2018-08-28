@@ -27,6 +27,7 @@ class CommodityCategory(models.Model):
     parent_category = models.ForeignKey("self", null=True, blank=True,
                                         on_delete=models.CASCADE,
                                         verbose_name="父类级别",
+                                        related_name="sub_cat",
                                         help_text="父类级别")
     is_tab = models.BooleanField(default=False, verbose_name="是否导航",
                                  help_text="是否导航")

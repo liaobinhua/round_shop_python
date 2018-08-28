@@ -35,6 +35,7 @@ for lev1_cat in row_data:
         lev2_intance.code = lev2_cat["code"]
         lev2_intance.name = lev2_cat["name"]
         lev2_intance.category_type = 2
+        lev2_intance.parent_category = lev1_intance
         lev2_intance.save()
 
         for lev3_cat in lev2_cat["sub_categorys"]:
@@ -42,4 +43,5 @@ for lev1_cat in row_data:
             lev3_intance.code = lev3_cat["code"]
             lev3_intance.name = lev3_cat["name"]
             lev3_intance.category_type = 3
+            lev3_intance.parent_category = lev2_intance
             lev3_intance.save()
